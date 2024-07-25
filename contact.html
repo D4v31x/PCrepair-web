@@ -3,24 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bit-Fix PC Repair - Contact</title>
+    <title>Bit-Fix - Kontakt</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">Bit-Fix</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">Bit-Fix</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Domov</a></li>
+                <li><a href="services.html">Služby</a></li>
+                <li><a href="about.html">O mně</a></li>
+                <li><a href="contact.html" class="active">Kontakt</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
     <main>
-        <h1>Contact Us</h1>
-        <p>Email: info@bit-fix.com</p>
-        <p>Phone: (555) 123-4567</p>
+        <section class="hero">
+            <div class="hero-content fade-in">
+                <h1 class="glitch" data-text="Kontaktujte nás">Kontaktujte nás</h1>
+                <p class="tagline">Jsem tu pro vás, když to potřebujete</p>
+            </div>
+        </section>
+
+       <section class="contact fade-in">
+            <h2>Kontaktní informace</h2>
+        <center><div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Email: bitfix.repairs@gmail.com</p>
+                <p><i class="fas fa-phone"></i> Telefon: +420778769907</p>
+            </div></center> 
+            <section id="contact-form" class="contact-form">
+                <h2 class="fade-in">Napište nám</h2>
+                <form id="contact-form" class="contact-form fade-in" action="https://formspree.io/f/meojewzv" method="POST">
+                    <div class="form-group">
+                        <label for="name">Jméno a Příjmení</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefonní číslo</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Zpráva</label>
+                        <textarea id="description" name="description" rows="4" required></textarea>
+                    </div>
+                    <input type="hidden" name="_subject" value="Nový dotaz">
+                    <button type="submit" class="submit-button">Odeslat dotaz</button>
+                </form>
+            </section>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2024 Bit-Fix. Všechna práva vyhrazena.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

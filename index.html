@@ -3,49 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bit-Fix PC Repair - Home</title>
+    <title>Bit-Fix - Domů</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">Bit-Fix</div>
-        <ul>
-            <li><a href="index.html" class="active">Domov</a></li>
-            <li><a href="services.html">Služby</a></li>
-            <li><a href="about.html">O nás</a></li>
-            <li><a href="contact.html">Kontakt</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">Bit-Fix</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Domov</a></li>
+                <li><a href="services.html">Služby</a></li>
+                <li><a href="about.html">O mně</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
     <main>
-        <div class="hero">
-            <h1>Vítá vás Bit-Fix</h1>
-            <p class="tagline">Opravím váš počítač, obnovím vaši produktivitu</p>
-        </div>
-        <div class="features">
-            <div class="feature">
-                <i class="fas fa-laptop-medical"></i>
-                <h2>Diagnostika a opravy</h2>
-                <p>Rychlá a přesná diagnostika problémů s vaším zařízením</p>
+        <section id="home" class="hero">
+            <div class="hero-content fade-in">
+                <h1 class="glitch" data-text="Oživte svůj počítač">Oživte svůj počítač</h1>
+                <p class="tagline">Bit-Fix. To je rychlé a efektivní řešení pro vaše technické problémy</p>
+                <a href="#services" class="cta-button">Prozkoumat služby</a>
             </div>
-            <div class="feature">
-                <i class="fas fa-shield-alt"></i>
-                <h2>Ochrana proti virům</h2>
-                <p>Účinné odstranění malwaru a posílení bezpečnosti</p>
+            <div class="hero-image fade-in">
+                <img src="img/pc.jpg" alt="Počítačový servis">
             </div>
-            <div class="feature">
-                <i class="fas fa-tachometer-alt"></i>
-                <h2>Optimalizace výkonu</h2>
-                <p>Zvýšení rychlosti a efektivity vašeho počítače</p>
+        </section>
+
+        <section id="services" class="services">
+            <h2 class="fade-in">Naše služby</h2>
+            <div class="service-cards">
+                <div class="service-card fade-in">
+                    <i class="fas fa-tools"></i>
+                    <h3>Diagnostika a oprava přehřívání</h3>
+                    <p>Vyčištění ventilátorů a chladičů, výměna termální pasty</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Odstranění virů a malware</h3>
+                    <p>Kompletní skenování a odstranění škodlivého softwaru</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Optimalizace výkonu</h3>
+                    <p>Zrychlení počítače a odstranění nepotřebných programů</p>
+                </div>
             </div>
-        </div>
-        <div class="cta">
-            <h2>Nechte mě postarat se o vaše zařízení</h2>
-            <p>Soustřeďte se na to, co je pro vás důležité. O techniku se postarám já.</p>
-            <a href="services.html" class="btn">Nabídka služeb</a>
-            <a href="contact.html" class="btn">Kontaktujte mě</a>
-        </div>
+            <a href="services.html" class="cta-button">Kompletní seznam</a>
+            <a href="services.html#order-form" class="cta-button">Objednat opravu</a>
+
+        </section>
+
+        <section class="reliability fade-in">
+            <h2>Spolehlivé opravy a pomoc</h2>
+            <p>V Bit-Fix se zaměřuji na poskytování spolehlivých oprav a pomoci při drobných problémech s vašimi notebooky a stolními počítači. Jako student se zájmem o počítačovou techniku nabízím své zkušenosti a dovednosti, abych vám pomohl vyřešit vaše technické potíže.</p>
+            <p>Ať už potřebujete pomoc s odstraněním virů, zrychlením počítače nebo řešením problémů s přehříváním, jsem tu pro vás. Mým cílem je poskytnout vám rychlé a efektivní řešení, které vám umožní vrátit se k práci nebo zábavě co nejdříve.</p>
+            <p>Nabízím také poradenství a podporu pro drobné opravy, které můžete provést sami. Věřím, že informovaný zákazník je spokojený zákazník, a proto vám rád poskytnu tipy a triky pro základní údržbu vašeho počítače.</p>
+            <p>Pamatujte, že neprovádím opravy jako jsou nefunkční displeje u notebooků. Pokud chcete vyměnit komponenty ve svém počítači, musíte je přinést s sebou.</p>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2024 Bit-Fix. Všechna práva vyhrazena.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

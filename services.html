@@ -3,56 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bit-Fix PC Repair - Services</title>
+    <title>Bit-Fix - Služby</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">Bit-Fix</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html" class="active">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">Bit-Fix</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Domov</a></li>
+                <li><a href="services.html" class="active">Služby</a></li>
+                <li><a href="about.html">O mně</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
     <main>
-        <h1>Nabízené služby</h1>
-        <p>Nabízím širokou škálu služeb, které pokryjí většinu běžných problémů s notebooky a stolními počítači. Níže najdete seznam služeb, které poskytuji:</p>
-        <div class="services-timeline">
-            <div class="service-item" data-index="0">
-                <h2>Diagnostika a oprava přehřívání</h2>
-                <ul>
-                    <li>Vyčištění ventilátorů a chladičů</li>
-                    <li>Výměna termální pasty</li>
-                </ul>
+        <section class="hero">
+            <div class="hero-content fade-in">
+                <h1 class="glitch" data-text="Nabízené služby">Nabízené služby</h1>
+                <p class="tagline">Komplexní řešení pro vaše počítačové problémy</p>
+
             </div>
-            <div class="service-item" data-index="1">
-                <h2>Odstranění virů a malware</h2>
-                <ul>
-                    <li>Kompletní skenování a odstranění škodlivého softwaru</li>
-                    <li>Instalace a nastavení antivirového programu</li>
-                    <li>Poradenství pro bezpečné používání internetu</li>
-                </ul>
+        </section>
+
+        <section id="services" class="services">
+            <h2 class="fade-in">Naše služby</h2>
+            <div class="service-cards">
+                <div class="service-card fade-in">
+                    <i class="fas fa-tools"></i>
+                    <h3>Diagnostika a oprava přehřívání</h3>
+                    <p>Vyčištění ventilátorů a chladičů, výměna termální pasty</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Odstranění virů a malware</h3>
+                    <p>Kompletní skenování a odstranění škodlivého softwaru</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Optimalizace výkonu</h3>
+                    <p>Zrychlení počítače a odstranění nepotřebných programů</p>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Další drobné opravy</h3>
+                    <p>Výměna komponent, instalace softwaru, záloha dat</p>
+                </div>
             </div>
-            <div class="service-item" data-index="2">
-                <h2>Optimalizace výkonu</h2>
-                <ul>
-                    <li>Odstranění nepotřebných programů a souborů</li>
-                    <li>Optimalizace systému pro rychlejší výkon</li>
-                    <li>Aktualizace operačního systému a ovladačů</li>
-                </ul>
-            </div>
-            <div class="service-item" data-index="3">
-                <h2>Další drobné opravy</h2>
-                <ul>
-                    <li>Výměna poškozených komponent (pouze PC) / nahrazení novými (komponenty nutno přinést s sebou)</li>
-                    <li>Instalace a nastavení softwaru</li>
-                    <li>Záloha a obnova dat</li>
-                </ul>
-            </div>
-        </div>
+        </section>
+
+        <section id="order-form" class="order-form">
+            <h2 class="fade-in">Objednat opravu</h2>
+            <form id="repair-form" class="repair-form fade-in" action="https://formspree.io/f/xqazeopy" method="POST">
+                <div class="form-group">
+                    <label for="name">Jméno a Příjmení</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefonní číslo</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="device-type">Typ zařízení</label>
+                    <select id="device-type" name="device-type" required>
+                        <option value="">Vyberte typ zařízení</option>
+                        <option value="notebook">Notebook</option>
+                        <option value="pc">PC</option>
+                        <option value="other">Jiné</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="repair-type">Typ opravy</label>
+                    <select id="repair-type" name="repair-type" required>
+                        <option value="">Vyberte typ opravy</option>
+                        <option value="overheating">Přehřívání</option>
+                        <option value="slow-system">Zpomalení systému</option>
+                        <option value="virus">Virus</option>
+                        <option value="software-installation">Instalace softwaru</option>
+                        <option value="consultation">Konzultace</option>
+                        <option value="other">Jiné</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Popis problému - Snažte se problém popsat co nejlépe</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="Nová objednávka opravy">
+                <button type="submit" class="submit-button">Odeslat objednávku</button>
+            </form>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2024 Bit-Fix. Všechna práva vyhrazena.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

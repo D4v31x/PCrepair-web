@@ -1,143 +1,102 @@
+/* JavaScript */
 document.addEventListener('DOMContentLoaded', () => {
-    const navItems = document.querySelectorAll('nav ul li');
-    const mainContent = document.querySelectorAll('main > *');
-    const serviceItems = document.querySelectorAll('.service-item');
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+    const header = document.querySelector('header');
 
-    function animateElement(element, delay) {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, delay);
-    }
-
-    // Animate nav items
-    navItems.forEach((item, index) => {
-        animateElement(item, 100 * index);
-    });
-
-    // Animate main content
-    mainContent.forEach((item, index) => {
-        animateElement(item, 100 * (navItems.length + index));
-    });
-});
-
-    // Set up service items animation
-    serviceItems.forEach((item, index) => {
-        item.style.setProperty('--item-index', index);
-    });
-
-
-    // Animate nav items on page load
-    navItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, 100 * index); // Animation starts from the first item
-    });
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+    // Toggle Nav
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        
+        // Animate Links
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
             }
         });
-    }, observerOptions);
 
-    sections.forEach(section => {
-        observer.observe(section);
+        // Burger Animation
+        burger.classList.toggle('toggle');
     });
 
     // Smooth scrolling for navigation links
-    navItems.forEach(item => {
-        const link = item.querySelector('a');
-        link.addEventListener('click', (e) => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 
-    // Animate nav items on page load
-    navItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        setTimeout(() => {document.addEventListener('DOMContentLoaded', () => {
-    const navItems = document.querySelectorAll('nav ul li');
-    const mainContent = document.querySelectorAll('main > *');
-    const serviceItems = document.querySelectorAll('.service-item');
-
-    function animateElement(element, delay) {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, delay);
-    }
-
-    // Animate nav items
-    navItems.forEach((item, index) => {
-        animateElement(item, 200 * (navItems.length - index - 1)); // Reverse order
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
 
-    // Animate main content
-    mainContent.forEach((item, index) => {
-        animateElement(item, 100 * (navItems.length + index));
-    });
-
-    // Set up service items animation
-    serviceItems.forEach((item, index) => {
-        item.style.setProperty('--item-index', index);
-    });
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+    // Intersection Observer for fade-in effect
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+        threshold: 0.2,
+        rootMargin: "0px 0px -100px 0px"
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, appearOptions);
 
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        observer.observe(section);
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
     });
 
-    // Smooth scrolling for navigation links
-    navItems.forEach(item => {
-        const link = item.querySelector('a');
-        link.addEventListener('click', (e) => {
+    // Zpracování formuláře
+    const form = document.getElementById('repair-form');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Odesílání...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    alert('Formulář byl úspěšně odeslán! Vyčkejte na náš e-mail.');
+                } else {
+                    throw new Error('Došlo k chybě při odesílání formuláře.');
+                }
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Odeslat objednávku';
+            }
         });
-    });
+    }
 });
-            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, 200 * (navItems.length - index - 1)); // Reverse the order
-    });
+
+

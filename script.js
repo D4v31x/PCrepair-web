@@ -33,12 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
         darkModePill.classList.remove('show');
     }, 7000);
 
-    // Burger menu functionality
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
+ // Burger menu functionality
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links li');
 
-    // In the burger click event listener
 burger.addEventListener('click', () => {
     // Toggle Nav
     nav.classList.toggle('active');
@@ -55,7 +54,7 @@ burger.addEventListener('click', () => {
     // Burger Animation
     burger.classList.toggle('active');
 
-    // Add this line to toggle body overflow
+    // Toggle body overflow
     document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : 'auto';
 });
 
